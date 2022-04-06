@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout</title>
+<style>
+
+/* Regras de uso geral
+o que codificamos aqui, é tudo que será usado no site não importando o muito o tamanho da tela.
+Neste momento, não usamos media queries */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* IMPORTANTE PARA O USO DA MEDIDA REM */
+html{ font-size: 15px; }
+
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+#container{
+    box-shadow: black 0 0 5px;
+    padding: 5px;
+   max-width: 1200px;
+}
+
+header{
+    background-color: dodgerblue;
+    text-align: center;
+    height: 100px;
+}
+
+/* CSS Reset */
+
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1{ font-size: 2rem;}
+h2{ font-size: 1.2rem;}
+p{ font-size: 1.1rem;}
+
+nav{ background-color: yellow; }
+
+article{ padding: 0.5rem;}
+
+#coluna-um{ background-color: darkseagreen;}
+#coluna-dois{ background-color: orange;}
+#coluna-tres{ background-color: salmon;}
+
+/* regras para desing responsivo */
+
+/* 1ª medua query: telas a partir de 700px de largura */
+@media screen and (min-width: 700px) {
+    html{ font-size: 18px;}
+    
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav{ width: 50%;}
+
+    main{/* flex container */
+        display: flex;
+        flex-wrap: wrap;/* permite quebra no fluxo */
+    }
+         /* versão um */
+    #coluna-um, #coluna-dois {
+         width: 50%;
+    }
+    
+
+}
+
+/* crie uma nova media query para telas a partir de 822px, que faça as seguintes alteraçõempty-cells: 
+
+-tamanho da fonte
+-largura das colunas: 33.33
+-limite o tamanho da container para até 1200px e também a centralize*/
+
+@media screen and (min-width: 822px) {
+    html{ font-size: 20px;}
+    
+
+    main{/* flex container */
+        display: flex;
+        flex-wrap: wrap;/* permite quebra no fluxo */
+        justify-content: space-evenly;
+        
+    }
+         /* versão um */
+    #coluna-um, #coluna-dois, #coluna-tres {
+         width: 33.33%;
+    }
+    /* versão dois(vale para todos os artigos) */
+    article{ width: 33.33%;}
+    
+    #container{
+         max-width: 1200px;
+        margin: auto;
+    }
+}
+
+</style>
+</head>
+<body>
+    
+    <!-- Vamos criar um layout responsivo do zero -->
+<div id="container">
+    <!-- cabeçalho -->
+    <header>
+        <h1> site XYZ</h1>
+        <nav>
+            <a href="">link1</a>
+            <a href="">link2</a>
+            <a href="">link3</a>
+        </nav>
+    </header>
+
+    <!-- conteúdo -->
+    <main>
+        <article id="coluna-um">
+            <h2>um</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quo beatae est non at enim accusantium dolores labore nisi consequuntur vero obcaecati cum neque itaque ad, assumenda mollitia blanditiis voluptas, eius ipsa error quidem numquam totam. Debitis, rerum sapiente? Ad totam dolor eligendi reiciendis ullam eaque, voluptate ratione consequuntur ipsum?</p>
+        </article>
+
+        <article id="coluna-dois">
+            <h2>dois</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, laboriosam illo ab dignissimos et, neque quae vel blanditiis minima iure voluptates culpa, facere deleniti nam minus quos sint quo? Ullam deserunt vitae cum, ipsa, tempore minima quod aut delectus eligendi voluptate tempora praesentium molestias veritatis! Facere nemo illo mollitia perferendis!</p>
+        </article>
+
+        <article id="coluna-tres">
+            <h2>três</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, dolores vero voluptates sapiente consectetur velit cum, nobis, alias sunt consequatur qui labore eum rem nisi provident. Esse ullam ipsa vitae ad provident eius ipsum ea nesciunt animi autem unde, perspiciatis facere eligendi quaerat sapiente accusamus nemo expedita molestiae incidunt earum.</p>
+        </article>
+    </main>
+
+    <!-- rodapé -->
+    <footer>
+        <p>Layout de Exemplo</p>
+    </footer>
+</div>
+
+</body>
+</html>
